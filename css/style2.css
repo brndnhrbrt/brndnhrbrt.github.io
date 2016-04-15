@@ -156,6 +156,14 @@ header nav ul li a {
 }
 
 @media only screen and (min-width: 0px) and (max-width: 800px) {
+	nav {
+		width: 100%;
+		text-align: center;
+	}
+
+	.nav {
+		margin: 0 !important;
+	}
 
 	header h1 {
 		margin: 0 0 0 10px;
@@ -191,6 +199,18 @@ header nav ul li a {
 
 @media only screen and (min-width: 0px) and (max-width: 398px) {
 
+	h3 {
+		font-size: 20px;
+	}
+
+	h2 {
+		font-weight: 300;
+		color: #444;
+		font-size: 30px;
+		text-transform: uppercase;
+		text-align: center;
+		margin-bottom: 20px;
+	}
 
 	nav {
 		margin-bottom: 20px;
@@ -201,6 +221,7 @@ header nav ul li a {
 	}
 
 	.nav li {
+		padding-right: 40px;
 		width: 100%;
 	}
 
@@ -210,10 +231,6 @@ header nav ul li a {
 
 	header .wrapper {
 		height: auto;	
-	}
-
-	.navText {
-
 	}
 
 	#hero-image {
@@ -328,7 +345,8 @@ header nav ul li a {
 #primary-content h3 {
 	display: block;
 	margin: 0 auto 20px auto;
-	width: 400px;
+	width: 100%;
+	max-width: 400px;
 	border-bottom: 1px solid #02b8dd; padding: 0 0 20px 0;
 }
 
@@ -414,7 +432,8 @@ article h4 {
 #cta h3 {
 	display: block;
 	margin: 0 auto 20px auto;
-	width: 400px;
+	width: 100%;
+	max-width: 400px;
 	border-bottom: 1px solid #02b8dd;
 	padding: 0 0 20px 0;
 }
