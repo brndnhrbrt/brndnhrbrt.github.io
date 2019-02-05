@@ -38,3 +38,8 @@
 .lnd-donate-button:focus {
     outline:0;
 }
+
+.lnd-input {
+	height: 30px;
+	margin: 5px;
+}
