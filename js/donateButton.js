@@ -26,6 +26,7 @@ function lndBtnPressedCustom() {
         document.getElementById("lnd-donate-image-custom").src = requestSrc;
         document.getElementById("lnd-donate-image-custom").classList.remove('lndHideImage');
     } else {
+        document.getElementById("lnd-donate-image-custom").src = '';
         document.getElementById("lnd-donate-image-custom").classList.add('lndHideImage');        
     }
 }

@@ -1,17 +1,20 @@
 <html>
     <head>
 
+        <meta charset="utf-8">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=medium-dpi" />
+        <title>Lightning Donate Plugin</title>
+
         <script src="js/donateButton.js"></script>
         <link rel="stylesheet" type="text/css" href="css/donateButton.css">
+        <link rel="stylesheet" type="text/css" href="css/donatePage.css">
 
     </head>
     <body>
 
         <div class="lnd-donate-container">
             <h3>Preset amount</h3>
-            <img id="lnd-donate-image" class="lndHideImage" src="http://btarpbits.com:3000/">
-            <br>
-            <button class="lnd-donate-button" onclick="lndBtnPressed()">Donate</button>
+            <img id="lnd-donate-image" src="http://btarpbits.com:3000/">
         </div>
 
         <br>
@@ -26,7 +29,7 @@
                 <input id="lnd-donate-message" class="lnd-input" type="text" name="message" placeholder="message">
             </div>
             <br>
-            <button class="lnd-donate-button" onclick="lndBtnPressedCustom()">Donate</button>
+            <button class="lnd-donate-button" onclick="lndBtnPressedCustom()">Click to Donate</button>
         </div>
 
     </body>
