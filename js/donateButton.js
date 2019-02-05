@@ -14,13 +14,13 @@ function lndBtnPressedCustom() {
     }
 
     var requestSrc = `${baseUrl}/ln/${amount}/${message}`;    
-    var requestTextSrc = `${baseUrl}/ln/text/${amount}/${message}`;
+    // var requestTextSrc = `${baseUrl}/ln/text/${amount}/${message}`;
 
     if(document.getElementById("lnd-donate-image-custom").classList.contains('lndHide')) {
-        document.getElementById("lnd-donate-iframe-custom").classList.remove('lndHide');
+        // document.getElementById("lnd-donate-iframe-custom").classList.remove('lndHide');
         document.getElementById("lnd-donate-image-custom").classList.remove('lndHide');
     } 
 
-    document.getElementById("lnd-donate-iframe-custom").src = requestTextSrc;
+    // document.getElementById("lnd-donate-iframe-custom").src = requestTextSrc;
     document.getElementById("lnd-donate-image-custom").src = requestSrc;
 }
