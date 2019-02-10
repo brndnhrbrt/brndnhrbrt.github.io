@@ -1,6 +1,6 @@
 function lndBtnPressedCustom() {
 
-    var baseUrl = 'http://btarpbits.com:3000';
+    var baseUrl = 'http://www.btarpbits.com:3000';
 
     var amount = document.getElementById('lnd-donate-amount').value;
     var message = document.getElementById('lnd-donate-message').value;
