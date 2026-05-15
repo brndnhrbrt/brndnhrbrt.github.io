@@ -209,6 +209,58 @@ function setupThemeToggle() {
   });
 }
 
+function setupMobileMenu() {
+  const header = document.querySelector(".site-header");
+  const toggle = document.querySelector("#menu-toggle");
+  const toggleIcon = toggle.querySelector("i");
+  const navLinks = document.querySelectorAll(".site-nav a");
+  const themeToggle = document.querySelector("#theme-toggle");
+  const mobileBreakpoint = window.matchMedia("(max-width: 760px)");
+
+  function closeMenu() {
+    header.classList.remove("is-menu-open");
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-label", "Open menu");
+    toggleIcon.className = "fas fa-bars";
+  }
+
+  function openMenu() {
+    header.classList.add("is-menu-open");
+    toggle.setAttribute("aria-expanded", "true");
+    toggle.setAttribute("aria-label", "Close menu");
+    toggleIcon.className = "fas fa-xmark";
+  }
+
+  toggle.addEventListener("click", () => {
+    if (header.classList.contains("is-menu-open")) {
+      closeMenu();
+      return;
+    }
+
+    openMenu();
+  });
+
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      if (mobileBreakpoint.matches) {
+        closeMenu();
+      }
+    });
+  });
+
+  themeToggle.addEventListener("click", () => {
+    if (mobileBreakpoint.matches) {
+      closeMenu();
+    }
+  });
+
+  mobileBreakpoint.addEventListener("change", (event) => {
+    if (!event.matches) {
+      closeMenu();
+    }
+  });
+}
+
 function revealProjectCards() {
   const projectCards = document.querySelectorAll(".project-card, .featured-card");
 
@@ -239,5 +291,6 @@ document.addEventListener("DOMContentLoaded", () => {
   renderGithubLinks();
   setFooterYear();
   setupThemeToggle();
+  setupMobileMenu();
   revealProjectCards();
 });
