@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Steganography</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>Image Steganography</h1>
+        <p>Hide messages or files inside images &mdash; output is always PNG, works completely offline</p>
+    </header>
+
+    <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab('encode')">&#128274; Encode</button>
+        <button class="tab-btn" onclick="switchTab('decode')">&#128269; Decode</button>
+    </div>
+
+    <!-- ── Encode ── -->
+    <div id="encode-panel" class="tab-panel active">
+
+        <div class="card">
+            <div class="section-label">1 &mdash; Select a carrier image</div>
+            <div class="drop-zone" id="enc-drop">
+                <input type="file" id="enc-file" accept="image/*">
+                <div class="drop-zone-icon">&#128444;&#65039;</div>
+                <div class="drop-zone-hint"><strong>Click to upload</strong> or drag &amp; drop an image</div>
+            </div>
+            <div id="enc-img-wrap" class="img-preview hidden">
+                <img id="enc-img" src="" alt="Preview">
+                <div class="img-meta" id="enc-meta"></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="section-label">2 &mdash; Choose your payload</div>
+
+            <div class="mode-toggle">
+                <button class="mode-btn active" id="mode-text-btn" onclick="setEncodeMode('text')">Text</button>
+                <button class="mode-btn" id="mode-file-btn" onclick="setEncodeMode('file')">File</button>
+            </div>
+
+            <div id="enc-text-mode">
+                <textarea id="enc-msg" placeholder="Type your secret message here..."></textarea>
+            </div>
+
+            <div id="enc-file-mode" class="hidden">
+                <div class="drop-zone file-pick-zone" id="enc-payload-drop">
+                    <input type="file" id="enc-payload-file" accept="*/*">
+                    <div class="drop-zone-icon">&#128196;</div>
+                    <div class="drop-zone-hint" id="enc-payload-hint">
+                        <strong>Click to select any file</strong> to hide inside the image
+                    </div>
+                </div>
+            </div>
+
+            <div class="char-counter" id="enc-counter">0 characters</div>
+        </div>
+
+        <div class="card">
+            <div class="section-label">3 &mdash; Encode &amp; download</div>
+            <button class="btn btn-blue" id="enc-btn" onclick="runEncode()" disabled>
+                Encode Message into Image
+            </button>
+            <div id="enc-status"></div>
+            <div id="enc-output" class="hidden" style="margin-top:1rem;">
+                <div class="section-label" style="margin-bottom:0.6rem;">Encoded image preview</div>
+                <div class="img-preview">
+                    <img id="enc-out-img" src="" alt="Encoded">
+                </div>
+                <button class="btn btn-green" onclick="downloadEncoded()" style="margin-top:0.85rem;">
+                    &#11015;&#65039; Download Encoded PNG
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ── Decode ── -->
+    <div id="decode-panel" class="tab-panel">
+
+        <div class="card">
+            <div class="section-label">1 &mdash; Select an encoded image</div>
+            <div class="drop-zone" id="dec-drop">
+                <input type="file" id="dec-file" accept="image/*">
+                <div class="drop-zone-icon">&#128269;</div>
+                <div class="drop-zone-hint"><strong>Click to upload</strong> or drag &amp; drop an encoded image</div>
+            </div>
+            <div id="dec-img-wrap" class="img-preview hidden">
+                <img id="dec-img" src="" alt="Preview">
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="section-label">2 &mdash; Reveal hidden content</div>
+            <button class="btn btn-blue" id="dec-btn" onclick="runDecode()" disabled>
+                Decode Hidden Content
+            </button>
+            <div id="dec-status"></div>
+            <div id="dec-output" class="hidden" style="margin-top:1rem;">
+                <div class="section-label" style="margin-bottom:0.6rem;" id="dec-output-label">Hidden content</div>
+                <div class="msg-box" id="dec-msg"></div>
+                <div id="dec-binary-info" class="hidden">
+                    <div class="binary-filename" id="dec-binary-name"></div>
+                    <button class="btn btn-green" onclick="downloadDecoded()">
+                        &#11015;&#65039; Download File
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<canvas id="canvas"></canvas>
+
+<script src="steg.js"></script>
+</body>
+</html>

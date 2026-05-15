@@ -3,55 +3,164 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Brandon Herbert | Full Stack Web Developer</title>
+    <title>Brandon Herbert | Full Stack Developer</title>
+    <meta
+      name="description"
+      content="Brandon Herbert is a senior full stack developer focused on production systems, AI workflows, and practical software delivery."
+    />
+    <script>
+      (function () {
+        const savedTheme = localStorage.getItem("portfolio-theme");
+        const prefersDark =
+          window.matchMedia &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const theme =
+          savedTheme === "dark" || savedTheme === "light"
+            ? savedTheme
+            : prefersDark
+              ? "dark"
+              : "light";
+        document.documentElement.setAttribute("data-theme", theme);
+      })();
+    </script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Mono:wght@300;400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="container">
-      <header>
-        <div class="logo">
-          <i class="fas fa-code"></i>
-          <span>Brandon Herbert</span>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="logo" href="#top" aria-label="Brandon Herbert home">
+          <span class="logo-mark">BH</span>
+          <span class="logo-text">Brandon Herbert</span>
+        </a>
+
+        <div class="header-actions">
+          <nav class="site-nav" aria-label="Primary">
+            <ul>
+              <li>
+                <a
+                  href="./assets/Brandon_Herbert_Resume.pdf"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Resume
+                </a>
+              </li>
+              <li><a href="#featured-work">Projects</a></li>
+              <li><a href="#skills">Skills</a></li>
+              <li><a href="#connect">Connect</a></li>
+            </ul>
+          </nav>
+
+          <button
+            type="button"
+            class="theme-toggle"
+            id="theme-toggle"
+            aria-label="Switch to dark mode"
+            aria-pressed="false"
+          >
+            <span class="theme-toggle-icon" aria-hidden="true">
+              <i class="fas fa-moon"></i>
+            </span>
+            <span class="theme-toggle-label">Dark mode</span>
+          </button>
         </div>
-        <nav>
-          <ul>
-            <li><a href="#projects">Projects</a></li>
-          </ul>
-        </nav>
       </header>
 
-      <section class="hero">
-        <h1>Full Stack Web Developer</h1>
-        <p>
-          Building secure, scalable web applications with modern technologies
-          and a passion for cybersecurity tools.
-        </p>
-        <div class="hero-buttons">
-          <a href="#projects" class="btn btn-primary">
-            <i class="fas fa-code"></i> View Projects
-          </a>
-        </div>
-      </section>
+      <main id="top">
+        <section class="hero">
+          <div class="hero-copy">
+            <p class="eyebrow">Team lead full stack developer</p>
+            <h1>I build production web software, AI tooling, and practical technical systems.</h1>
+            <p class="hero-description">
+              From internal tools to device-connected projects, I like building
+              software that is useful, reliable, and easy to work with.
+            </p>
 
-      <section id="projects">
-        <h2 class="section-title">Recent Projects</h2>
+            <div class="hero-actions">
+              <a href="#featured-work" class="btn btn-primary">
+                <i class="fas fa-stars"></i>
+                View featured work
+              </a>
+              <a
+                href="./assets/Brandon_Herbert_Resume.pdf"
+                class="btn btn-secondary"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <i class="fas fa-file-arrow-down"></i>
+                View resume
+              </a>
+              <a
+                href="https://github.com/brndnhrbrt"
+                class="btn btn-secondary"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <i class="fab fa-github"></i>
+                View GitHub
+              </a>
+            </div>
+          </div>
 
-        <div class="projects-grid">
-          <!-- Projects will be populated by JavaScript -->
+          <aside class="hero-panel" aria-label="Professional focus">
+            <p class="panel-label">Quick context</p>
+            <ul class="focus-list" id="focus-list">
+              <!-- Populated by JavaScript -->
+            </ul>
+          </aside>
+        </section>
+
+        <section class="section featured-section" id="featured-work">
+          <div class="section-heading featured-heading">
+            <p class="eyebrow">Featured work</p>
+            <h2>Selected work</h2>
+          </div>
+
+          <div class="featured-grid" id="featured-grid">
+            <!-- Populated by JavaScript -->
+          </div>
+        </section>
+
+        <section class="section" id="skills">
+          <div class="section-heading compact-heading">
+            <p class="eyebrow">Skills</p>
+            <h2>Core technologies</h2>
+          </div>
+
+          <div class="skills-grid" id="skills-grid">
+            <!-- Populated by JavaScript -->
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer" id="connect">
+        <div class="footer-copy">
+          <p class="eyebrow">Connect</p>
+          <h2>Find more of my work</h2>
+          <p class="footer-description">
+            Explore current projects, experiments, and code samples across both
+            of my GitHub profiles.
+          </p>
         </div>
 
         <div class="github-links">
           <!-- GitHub links will be populated by JavaScript -->
         </div>
-      </section>
+
+        <p class="footer-note">
+          <span id="footer-year"></span> Brandon Herbert. Built as a static site for GitHub Pages.
+        </p>
+      </footer>
     </div>
 
     <script src="app.js"></script>

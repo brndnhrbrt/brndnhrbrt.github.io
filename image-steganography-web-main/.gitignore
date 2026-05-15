@@ -1,0 +1,14 @@
+# macOS
+.DS_Store
+
+# Python dev server
+__pycache__/
+
+# Playwright test artifacts
+.playwright-mcp/
+
+# Encoded output images (downloaded by the app)
+*.png
+*.jpg
+*.jpeg
+!README*.png
